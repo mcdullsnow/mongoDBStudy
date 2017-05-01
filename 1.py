@@ -1,23 +1,20 @@
 import os
-import pprint
 import csv
+import pprint
 
-DATADIR=""
-DATAFILE="#csv文件名"
+DATADIR='/Users/huixueshao/Downloads/data_analysis'
+DATAFILE='beatles-diskography.csv'
 
-def pasre_csv(datafile):
+def parse_data(datafile):
     data = []
-    n = 0
-    with open(datafile,'rb') as sd:
-        r = csv.DictReader(sd)
-        for line in r:
-            data.append(line)
+    with open(datafile,'r') as df:
+        r = csv.DictReader(df)
+        for each_line in r:
+            data.append(each_line)
     return data
 
-if __name__=='__main__':
+if __name__ == "__main__":
     datafile = os.path.join(DATADIR,DATAFILE)
-    pasre_csv(datafile)
-    d=pasre_csv(datafile)
+    parse_data(datafile)
+    d = parse_data(datafile)
     pprint.pprint(d)
-
-
